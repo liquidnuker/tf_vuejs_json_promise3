@@ -35,7 +35,6 @@ const jsonLoader = {
     return jsonLoader.start(url).then(JSON.parse);
   },
   filter: () => {
-
     return new Promise(function (resolve, reject) {
       $("#paginator").jPages("destroy");
       store.state.message = where(store.state.message, {
@@ -45,12 +44,11 @@ const jsonLoader = {
       resolve(store.state.message);
       // reject(Error("error"));
 
-    }).then(function (value) {
-      console.log(value, "update paginator"); // success
-      return store.state.message;
-      // showPages();
-      // return new showPages();
-    }).then(function () {
+    }).then(function (resolved) {
+      // success
+      console.log(resolved); 
+      // return store.state.message;
+      }).then(function () {
       showPages();
     }, function (err) {
       console.log(err); // error

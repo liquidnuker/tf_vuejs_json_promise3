@@ -14062,7 +14062,6 @@ var jsonLoader = {
     return jsonLoader.start(url).then(JSON.parse);
   },
   filter: function filter() {
-
     return new Promise(function (resolve, reject) {
       $("#paginator").jPages("destroy");
       store.state.message = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_underscore__["where"])(store.state.message, {
@@ -14070,15 +14069,11 @@ var jsonLoader = {
       });
 
       resolve(store.state.message);
-      // console.log(store.state.message);
-
-      // or
-      // reject ("Error!");
-    }).then(function (value) {
-      console.log(value, "update paginator"); // success
-      return store.state.message;
-      // showPages();
-      // return new showPages();
+      // reject(Error("error"));
+    }).then(function (resolved) {
+      // success
+      console.log(resolved);
+      // return store.state.message;
     }).then(function () {
       showPages();
     }, function (err) {
