@@ -34,11 +34,11 @@ const jsonLoader = {
   getJSON: (url) => {
     return jsonLoader.start(url).then(JSON.parse);
   },
-  filter: () => {
+  filter: (speciesToFilter) => {
     return new Promise(function (resolve, reject) {
       $("#paginator").jPages("destroy");
       store.state.message = where(store.state.message, {
-        species: "Jukan"
+        species: speciesToFilter
       });
 
       resolve(store.state.message);
@@ -133,7 +133,7 @@ const showPages = () => {
     });
 
     $("#filterSpecies").on("click", function () {
-      jsonLoader.filter();
+      jsonLoader.filter("Jukan");
     });
   };
 

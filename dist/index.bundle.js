@@ -14061,11 +14061,11 @@ var jsonLoader = {
   getJSON: function getJSON(url) {
     return jsonLoader.start(url).then(JSON.parse);
   },
-  filter: function filter() {
+  filter: function filter(speciesToFilter) {
     return new Promise(function (resolve, reject) {
       $("#paginator").jPages("destroy");
       store.state.message = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_underscore__["where"])(store.state.message, {
-        species: "Jukan"
+        species: speciesToFilter
       });
 
       resolve(store.state.message);
@@ -14153,7 +14153,7 @@ var showPages = function showPages() {
     });
 
     $("#filterSpecies").on("click", function () {
-      jsonLoader.filter();
+      jsonLoader.filter("Jukan");
     });
   };
 
