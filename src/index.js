@@ -37,6 +37,7 @@ const jsonLoader = {
   filter: () => {
 
     return new Promise(function (resolve, reject) {
+      $("#paginator").jPages("destroy");
       store.state.message = where(store.state.message, {
         species: "Jukan"
       });
@@ -162,8 +163,8 @@ const showPages = () => {
 
     $("#filterSpecies").on("click", function () {
       // console.log("filterSpecies");
-      // jsonLoader.filter();
-      $("#paginator").jPages("destroy");
+      jsonLoader.filter();
+
     });
 
 

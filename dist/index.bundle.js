@@ -14064,6 +14064,7 @@ var jsonLoader = {
   filter: function filter() {
 
     return new Promise(function (resolve, reject) {
+      $("#paginator").jPages("destroy");
       store.state.message = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_underscore__["where"])(store.state.message, {
         species: "Jukan"
       });
@@ -14175,8 +14176,7 @@ var showPages = function showPages() {
 
     $("#filterSpecies").on("click", function () {
       // console.log("filterSpecies");
-      // jsonLoader.filter();
-      $("#paginator").jPages("destroy");
+      jsonLoader.filter();
     });
   };
   if (document.readyState !== "loading") start();else if (document.addEventListener) document.addEventListener("DOMContentLoaded", start);else document.attachEvent("onreadystatechange", function () {
