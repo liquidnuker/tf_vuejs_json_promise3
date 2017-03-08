@@ -43,15 +43,18 @@ const jsonLoader = {
 
 
       resolve(store.state.message);
-      console.log(store.state.message);
+      // console.log(store.state.message);
 
       // or
       // reject ("Error!");
-    }).then(function () {
-      // console.log(value, "update paginator"); // success
-      console.log("update paginator");
+    }).then(function (value) {
+      console.log(value, "update paginator"); // success
+      return store.state.message;
+      // showPages();
+      // return new showPages();
+    }).then(function() {
       showPages();
-    }, function (err) {
+    } , function (err) {
       console.log(err); // error
     });
 
