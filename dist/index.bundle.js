@@ -14072,9 +14072,8 @@ var jsonLoader = {
       // reject(Error("error"));
     }).then(function (resolved) {
       // success
-      console.log(resolved);
+      // console.log(resolved); 
       // return store.state.message;
-    }).then(function () {
       showPages();
     }, function (err) {
       console.log(err); // error
