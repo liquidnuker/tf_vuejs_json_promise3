@@ -14062,17 +14062,21 @@ var jsonLoader = {
     return jsonLoader.start(url).then(JSON.parse);
   },
   filter: function filter() {
-    // store.state.message = where(store.state.message, {
-    //   species: "Jukan"
-    // });
+
     return new Promise(function (resolve, reject) {
-      var x = "test";
-      resolve(x);
+      store.state.message = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_underscore__["where"])(store.state.message, {
+        species: "Jukan"
+      });
+
+      resolve(store.state.message);
+      console.log(store.state.message);
+
       // or
       // reject ("Error!");
     }).then(function () {
       // console.log(value, "update paginator"); // success
-      console.log("update paginator");
+      // console.log("update paginator");
+      showPages();
     }, function (err) {
       console.log(err); // error
     });

@@ -35,17 +35,22 @@ const jsonLoader = {
     return jsonLoader.start(url).then(JSON.parse);
   },
   filter: () => {
-    // store.state.message = where(store.state.message, {
-    //   species: "Jukan"
-    // });
+    
     return new Promise(function (resolve, reject) {
-      let x = "test";
-      resolve(x);
+      store.state.message = where(store.state.message, {
+      species: "Jukan"
+      });
+
+
+      resolve(store.state.message);
+      console.log(store.state.message);
+
       // or
       // reject ("Error!");
     }).then(function () {
       // console.log(value, "update paginator"); // success
-      console.log("update paginator");
+      // console.log("update paginator");
+      showPages();
     }, function (err) {
       console.log(err); // error
     });
