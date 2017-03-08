@@ -35,10 +35,10 @@ const jsonLoader = {
     return jsonLoader.start(url).then(JSON.parse);
   },
   filter: () => {
-    
+
     return new Promise(function (resolve, reject) {
       store.state.message = where(store.state.message, {
-      species: "Jukan"
+        species: "Jukan"
       });
 
 
@@ -49,7 +49,7 @@ const jsonLoader = {
       // reject ("Error!");
     }).then(function () {
       // console.log(value, "update paginator"); // success
-      // console.log("update paginator");
+      console.log("update paginator");
       showPages();
     }, function (err) {
       console.log(err); // error
@@ -94,7 +94,22 @@ const vmA = new Vue({
     privateState: {},
     sharedState: store.state
   },
-  methods: {}
+  methods: {
+
+  },
+  beforeCreate: () => {
+    console.log("vmA-beforeCreate");
+  },
+  created: () => {
+    console.log("vmA-created");
+
+  },
+  beforeUpdate: () => {
+    console.log("vmA-beforeUpdate");
+  },
+  updated: () => {
+    console.log("vmA-updated");
+  }
 });
 
 const vmB = new Vue({
@@ -163,18 +178,3 @@ jsonLoader.getJSON(jsonUrl)
   }).then(function () {
     showPages();
   });
-
-// beforeCreate: () => {
-//     console.log("vmA-beforeCreate");
-//   },
-//   created: () => {
-//     console.log("vmA-created");
-
-//   },
-//   beforeUpdate: () => {
-//     console.log("vmA-beforeUpdate");
-//   },
-//   updated: () => {
-//     console.log("vmA-updated");
-//     showPages();
-//   },

@@ -14075,7 +14075,7 @@ var jsonLoader = {
       // reject ("Error!");
     }).then(function () {
       // console.log(value, "update paginator"); // success
-      // console.log("update paginator");
+      console.log("update paginator");
       showPages();
     }, function (err) {
       console.log(err); // error
@@ -14111,7 +14111,19 @@ var vmA = new Vue({
     privateState: {},
     sharedState: store.state
   },
-  methods: {}
+  methods: {},
+  beforeCreate: function beforeCreate() {
+    console.log("vmA-beforeCreate");
+  },
+  created: function created() {
+    console.log("vmA-created");
+  },
+  beforeUpdate: function beforeUpdate() {
+    console.log("vmA-beforeUpdate");
+  },
+  updated: function updated() {
+    console.log("vmA-updated");
+  }
 });
 
 var vmB = new Vue({
@@ -14174,21 +14186,6 @@ jsonLoader.getJSON(jsonUrl).then(function (response) {
 }).then(function () {
   showPages();
 });
-
-// beforeCreate: () => {
-//     console.log("vmA-beforeCreate");
-//   },
-//   created: () => {
-//     console.log("vmA-created");
-
-//   },
-//   beforeUpdate: () => {
-//     console.log("vmA-beforeUpdate");
-//   },
-//   updated: () => {
-//     console.log("vmA-updated");
-//     showPages();
-//   },
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ })
