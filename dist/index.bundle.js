@@ -14039,6 +14039,8 @@ var Vue = __webpack_require__(3);
 var jsonUrl = "src/js/ajax/bonsai.json";
 var jsonLoader = {
   start: function start(url) {
+    jsonLoader.preloader();
+
     return new Promise(function (resolve, reject) {
       var req = new XMLHttpRequest();
       req.open("GET", url);
@@ -14163,10 +14165,9 @@ var showPages = function showPages() {
   });
 })();
 
-jsonLoader.preloader();
 jsonLoader.getJSON(jsonUrl).then(function (response) {
   store.state.message = response.bonsai;
-  // vmA.loader = false;
+  vmA.loading = false;
 }).then(function () {
   showPages();
 });

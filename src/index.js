@@ -12,6 +12,8 @@ import "./js/vendor/jPages.min.js";
 const jsonUrl = "src/js/ajax/bonsai.json";
 const jsonLoader = {
   start: (url) => {
+    jsonLoader.preloader();
+    
     return new Promise(function (resolve, reject) {
       let req = new XMLHttpRequest();
       req.open("GET", url);
@@ -145,11 +147,11 @@ const showPages = () => {
   });
 })();
 
-jsonLoader.preloader();
+
 jsonLoader.getJSON(jsonUrl)
   .then(function (response) {
     store.state.message = response.bonsai;
-    // vmA.loader = false;
+    vmA.loading = false;
   }).then(function () {
     showPages();
   });
