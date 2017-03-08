@@ -42,20 +42,17 @@ const jsonLoader = {
         species: "Jukan"
       });
 
-
       resolve(store.state.message);
-      // console.log(store.state.message);
+      // reject(Error("error"));
 
-      // or
-      // reject ("Error!");
     }).then(function (value) {
       console.log(value, "update paginator"); // success
       return store.state.message;
       // showPages();
       // return new showPages();
-    }).then(function() {
+    }).then(function () {
       showPages();
-    } , function (err) {
+    }, function (err) {
       console.log(err); // error
     });
 
