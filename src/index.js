@@ -136,6 +136,7 @@ const vmC = new Vue({
 const showPages = () => {
   // require.ensure("./js/vendor/jPages.min.js", () => {
   // resolve(require("./js/vendor/jPages.min.js"));
+
   $("#paginator").jPages({
     containerID: "galleryContainer",
     first: "first",
@@ -160,8 +161,9 @@ const showPages = () => {
     });
 
     $("#filterSpecies").on("click", function () {
-      console.log("filterSpecies");
-      jsonLoader.filter();
+      // console.log("filterSpecies");
+      // jsonLoader.filter();
+      $("#paginator").jPages("destroy");
     });
 
 
