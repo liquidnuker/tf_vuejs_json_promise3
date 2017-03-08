@@ -67,7 +67,7 @@ const jsonLoader = {
       <div class="sk-rect sk-rect4"></div>
       <div class="sk-rect sk-rect5"></div>
       </div>`;
-    // document.getElementById("loader").innerHTML = spinner;
+    document.getElementById("loader").innerHTML = spinner;
   }
 };
 
@@ -145,7 +145,7 @@ const showPages = () => {
   });
 })();
 
-// jsonLoader.preloader();
+jsonLoader.preloader();
 jsonLoader.getJSON(jsonUrl)
   .then(function (response) {
     store.state.message = response.bonsai;

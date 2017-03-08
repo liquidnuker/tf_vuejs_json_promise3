@@ -14087,7 +14087,7 @@ var jsonLoader = {
   },
   preloader: function preloader() {
     var spinner = "<div class=\"sk-wave\">\n      <div class=\"sk-rect sk-rect1\"></div>\n      <div class=\"sk-rect sk-rect2\"></div>\n      <div class=\"sk-rect sk-rect3\"></div>\n      <div class=\"sk-rect sk-rect4\"></div>\n      <div class=\"sk-rect sk-rect5\"></div>\n      </div>";
-    // document.getElementById("loader").innerHTML = spinner;
+    document.getElementById("loader").innerHTML = spinner;
   }
 };
 
@@ -14163,7 +14163,7 @@ var showPages = function showPages() {
   });
 })();
 
-// jsonLoader.preloader();
+jsonLoader.preloader();
 jsonLoader.getJSON(jsonUrl).then(function (response) {
   store.state.message = response.bonsai;
   // vmA.loader = false;
