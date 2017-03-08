@@ -1,10 +1,7 @@
 import "./styles/main.scss";
 
 const Vue = require("./js/vendor/vue.min.js");
-import {
-  where
-}
-from "underscore";
+import {where} from "underscore";
 import "./js/vendor/jPages.min.js";
 
 // 
@@ -12,8 +9,6 @@ import "./js/vendor/jPages.min.js";
 const jsonUrl = "src/js/ajax/bonsai.json";
 const jsonLoader = {
   start: (url) => {
-    jsonLoader.preloader();
-    
     return new Promise(function (resolve, reject) {
       let req = new XMLHttpRequest();
       req.open("GET", url);
@@ -129,6 +124,14 @@ const showPages = () => {
   });
 };
 
+jsonLoader.preloader();
+jsonLoader.getJSON(jsonUrl).then(function (response) {
+  store.state.message = response.bonsai;
+  vmA.loading = false;
+}).then(function () {
+  showPages();
+});
+
 (function () {
   const start = () => {
     $(document.body).on("click", "img", function () {
@@ -146,12 +149,3 @@ const showPages = () => {
     if (document.readyState === "complete") start();
   });
 })();
-
-
-jsonLoader.getJSON(jsonUrl)
-  .then(function (response) {
-    store.state.message = response.bonsai;
-    vmA.loading = false;
-  }).then(function () {
-    showPages();
-  });
