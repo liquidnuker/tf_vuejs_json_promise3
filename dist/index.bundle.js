@@ -14150,6 +14150,7 @@ var vmC = new Vue({
 var showPages = function showPages() {
   // require.ensure("./js/vendor/jPages.min.js", () => {
   // resolve(require("./js/vendor/jPages.min.js"));
+
   $("#paginator").jPages({
     containerID: "galleryContainer",
     first: "first",
@@ -14173,8 +14174,9 @@ var showPages = function showPages() {
     });
 
     $("#filterSpecies").on("click", function () {
-      console.log("filterSpecies");
-      jsonLoader.filter();
+      // console.log("filterSpecies");
+      // jsonLoader.filter();
+      $("#paginator").jPages("destroy");
     });
   };
   if (document.readyState !== "loading") start();else if (document.addEventListener) document.addEventListener("DOMContentLoaded", start);else document.attachEvent("onreadystatechange", function () {
