@@ -14109,19 +14109,7 @@ var vmA = new Vue({
     privateState: {},
     sharedState: store.state
   },
-  methods: {},
-  beforeCreate: function beforeCreate() {
-    console.log("vmA-beforeCreate");
-  },
-  created: function created() {
-    console.log("vmA-created");
-  },
-  beforeUpdate: function beforeUpdate() {
-    console.log("vmA-beforeUpdate");
-  },
-  updated: function updated() {
-    console.log("vmA-updated");
-  }
+  methods: {}
 });
 
 var vmB = new Vue({
@@ -14143,9 +14131,6 @@ var vmC = new Vue({
 // 
 // ======================================================/
 var showPages = function showPages() {
-  // require.ensure("./js/vendor/jPages.min.js", () => {
-  // resolve(require("./js/vendor/jPages.min.js"));
-
   $("#paginator").jPages({
     containerID: "galleryContainer",
     first: "first",
@@ -14163,16 +14148,15 @@ var showPages = function showPages() {
 
 (function () {
   var start = function start() {
-    console.log("document ready");
     $(document.body).on("click", "img", function () {
       jsonLoader.filterId(this.id);
     });
 
     $("#filterSpecies").on("click", function () {
-      // console.log("filterSpecies");
       jsonLoader.filter();
     });
   };
+
   if (document.readyState !== "loading") start();else if (document.addEventListener) document.addEventListener("DOMContentLoaded", start);else document.attachEvent("onreadystatechange", function () {
     if (document.readyState === "complete") start();
   });

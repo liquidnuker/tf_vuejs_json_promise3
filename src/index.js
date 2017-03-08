@@ -52,9 +52,6 @@ const jsonLoader = {
     }, function (err) {
       console.log(err); // error
     });
-
-
-
   },
   filterId: (idToFilter) => {
     store.state.filteredId = where(store.state.message, {
@@ -92,22 +89,7 @@ const vmA = new Vue({
     privateState: {},
     sharedState: store.state
   },
-  methods: {
-
-  },
-  beforeCreate: () => {
-    console.log("vmA-beforeCreate");
-  },
-  created: () => {
-    console.log("vmA-created");
-
-  },
-  beforeUpdate: () => {
-    console.log("vmA-beforeUpdate");
-  },
-  updated: () => {
-    console.log("vmA-updated");
-  }
+  methods: {}
 });
 
 const vmB = new Vue({
@@ -129,9 +111,6 @@ const vmC = new Vue({
 // 
 // ======================================================/
 const showPages = () => {
-  // require.ensure("./js/vendor/jPages.min.js", () => {
-  // resolve(require("./js/vendor/jPages.min.js"));
-
   $("#paginator").jPages({
     containerID: "galleryContainer",
     first: "first",
@@ -145,24 +124,19 @@ const showPages = () => {
     perPage: 10,
     midRange: 5,
   });
-
 };
 
 (function () {
   const start = () => {
-    console.log("document ready");
     $(document.body).on("click", "img", function () {
       jsonLoader.filterId(this.id);
     });
 
     $("#filterSpecies").on("click", function () {
-      // console.log("filterSpecies");
       jsonLoader.filter();
-
     });
-
-
   };
+
   if (document.readyState !== "loading") start();
   else if (document.addEventListener) document.addEventListener("DOMContentLoaded", start);
   else document.attachEvent("onreadystatechange", function () {
