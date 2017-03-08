@@ -38,9 +38,8 @@ const jsonLoader = {
     // store.state.message = where(store.state.message, {
     //   species: "Jukan"
     // });
-
-    var p1 = new Promise(function (resolve, reject) {
-      var x = "test";
+    const p1 = new Promise(function (resolve, reject) {
+      let x = "test";
       resolve(x);
       // or
       // reject ("Error!");
