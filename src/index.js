@@ -47,10 +47,10 @@ const jsonLoader = {
     });
 
     p1.then(function () {
-      // console.log(value, "update paginator"); // Success!
+      // console.log(value, "update paginator"); // success
       console.log("update paginator");
-    }, function (reason) {
-      console.log(reason); // Error!
+    }, function (err) {
+      console.log(err); // error
     });
 
 
