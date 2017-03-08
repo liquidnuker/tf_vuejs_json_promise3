@@ -38,14 +38,12 @@ const jsonLoader = {
     // store.state.message = where(store.state.message, {
     //   species: "Jukan"
     // });
-    const p1 = new Promise(function (resolve, reject) {
+    return new Promise(function (resolve, reject) {
       let x = "test";
       resolve(x);
       // or
       // reject ("Error!");
-    });
-
-    p1.then(function () {
+    }).then(function () {
       // console.log(value, "update paginator"); // success
       console.log("update paginator");
     }, function (err) {
