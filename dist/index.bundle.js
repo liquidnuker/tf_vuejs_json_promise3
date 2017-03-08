@@ -14107,7 +14107,8 @@ var vmA = new Vue({
   el: "#app",
   data: {
     privateState: {},
-    sharedState: store.state
+    sharedState: store.state,
+    loading: true
   },
   methods: {}
 });

@@ -25,7 +25,8 @@
     </div>
     <div id="app" class="app">
       <ul id="galleryContainer">
-        <li v-for="items in sharedState.message">
+        <li v-if="loading">loading...</li>
+        <li v-else v-for="items in sharedState.message">
           {{ items.id }} <br>
           {{ items.thumb }} <br>
           <img v-bind:src="'img/' + items.id +'.jpg'" v-bind:id="items.id">
