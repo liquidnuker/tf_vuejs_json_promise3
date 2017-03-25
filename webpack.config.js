@@ -21,16 +21,6 @@ module.exports = {
         test: /\.scss$/,
         loader: extractCSS.extract(['css-loader', 'sass-loader'])
       },
-      // // url loader
-      // {
-      //   test: /\.(png|jpg|otf|ttf)$/,
-      //   use: [{
-      //     loader: 'url-loader',
-      //     options: {
-      //       limit: 10000
-      //     } // Convert images < 10k to base64 strings
-      //   }]
-      // },
       // babel-loader
       {
         test: /\.js$/,
